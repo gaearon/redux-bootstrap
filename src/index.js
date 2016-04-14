@@ -4,33 +4,36 @@ import { createStore, applyMiddleware } from "redux";
 import { browserHistory } from "react-router";
 import { syncHistoryWithStore } from "react-router-redux";
 import { combineReducers } from "redux-immutable";
+import Immutable from "immutable";
 import Root from "./containers/Root";
 import configureStore from "./store/configureStore";
 
 function bootstrap(options) {
     
-    // Set default options
-    options = options || {};
-    const container = options.container || "root";
-    const routes = options.reducers || {};
-    const reducers = options.reducers || {};
-    const reducersPath = options.reducersPath || "../reducers";
-    const initialState = options.initialState || Immutable.Map();
-    const middleware = options.middleware || [];
+    // Validate options and set defaults
+    if (options === undefined) throw new Error();
+    if (options.container === undefined) throw new Error();
+    if (options.routes === undefined) throw new Error();
+    if (options.reducers === undefined) throw new Error();
+    let initialState = options.initialState || Immutable.Map();
+    let middleware = options.middleware || [];
 
     // Define the root reducer
-    const rootReducer = combineReducers(reducers);
+    let rootReducer = combineReducers({
+        ...options.reducers,
+        routing: routerReducer
+    });
 
     // Configure store
-    const store = configureStore(middleware, rootReducer, initialState);
+    let store = configureStore(middleware, rootReducer, initialState);
 
     // Create an enhanced history that syncs navigation events with the store
-    const history = syncHistoryWithStore(browserHistory, store);
+    let history = syncHistoryWithStore(browserHistory, store);
 
     // Render Root coponent
     render(
-        <Root store={store} history={history} routes={routes} />,
-        document.getElementById(container)
+        <Root store={store} history={history} routes={options.routes} />,
+        document.getElementById(options.container)
     );
 
 }
