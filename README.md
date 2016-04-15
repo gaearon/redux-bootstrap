@@ -26,8 +26,8 @@ When you create a new Redux project you usually need to take care about a few th
 - Combine reducers into a root reducer
 - Create the store
 - Sync history with store
-- Create the Root component
-- Set the Provider, Router, routes, history and store in the Root component
+- Create the Root component (includes Provider, Router)
+- Set the routes, history and store in the Root component
 - Render the Root component
 ```
 
