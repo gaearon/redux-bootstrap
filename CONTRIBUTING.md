@@ -1,10 +1,10 @@
-# Contributing to Inversify
+# Contributing
 
 ## Setup
 
 1 - Clone your fork of the repository:
 ```
-$ git clone https://github.com/YOUR_USERNAME/InversifyJS.git
+$ git clone https://github.com/YOUR_USERNAME/redux-bootstrap.git
 ```
 
 2 - Install typings:
