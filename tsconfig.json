@@ -12,7 +12,8 @@
         "removeComments": true,
         "noLib": false,
         "preserveConstEnums": true,
-        "suppressImplicitAnyIndexErrors": false
+        "suppressImplicitAnyIndexErrors": false,
+        "outDir": "lib"
     },
     "filesGlob": [
         "src/**/*.tsx",

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-let Root: React.Component<RootComponentProps, void> = null;
+let Root: any;
 
 if (process.env.NODE_ENV === "production") {
   Root = require("./root.prod");
