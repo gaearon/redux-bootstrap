@@ -2,11 +2,11 @@
 /// <reference path="../../node_modules/immutable/dist/immutable.d.ts" />
 
 interface BoostrapOptions {
-    container: string;
     routes: ReactRouter.Route;
     reducers: Redux.Reducer;
-    initialState: any;
-    middlewares: Redux.Middleware[];
+    middlewares?: Redux.Middleware[];
+    initialState?: any;
+    container?: string;
 }
 
 interface RootComponentProps {

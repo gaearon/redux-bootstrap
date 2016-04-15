@@ -13,14 +13,16 @@ function bootstrap(options: BoostrapOptions) {
 
     // Validate options and set defaults
     if (options === undefined) { throw new Error(); };
-    if (options.container === undefined) { throw new Error(); };
     if (options.routes === undefined) { throw new Error(); };
     if (options.reducers === undefined) { throw new Error(); };
 
-    let container = options.container;
+    // mandatory
     let routes = options.routes;
     let reducers: any = options.reducers;
-    let initialState = options.initialState || Immutable.Map();
+
+    // optional
+    let container = options.container || "root";
+    let initialState = Immutable.Map(options.initialState || {});
     let middlewares = options.middlewares || [];
 
     // Define the root reducer
