@@ -6,6 +6,10 @@
 [![img](https://david-dm.org/remojansen/redux-bootstrap/peer-status.svg)](https://david-dm.org/remojansen/redux-bootstrap/#info=peerDependenciess)
 [![Known Vulnerabilities](https://snyk.io/test/github/remojansen/redux-bootstrap/badge.svg)](https://snyk.io/test/github/remojansen/redux-bootstrap)
 
+
+[![NPM](https://nodei.co/npm/redux-bootstrap.png?downloads=true&downloadRank=true)](https://nodei.co/npm/redux-bootstrap/)
+[![NPM](https://nodei.co/npm-dl/redux-bootstrap.png?months=9&height=3)](https://nodei.co/npm/redux-bootstrap/)
+
 Bootstrapping function for Redux applications. Redux bootstrap does not generate files for you. It is not a project template or project scaffolding tool.
 
 ## Why Do I Need This?
