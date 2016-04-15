@@ -43,13 +43,14 @@ npm install --save redux-bootstrap
 
 The preceding command will install `redux-bootstrap` and the following dependencies:
 
-```
+```json
 "immutable": "^3.7.6",
 "react": "^15.0.1",
 "react-dom": "^15.0.1",
 "react-redux": "^4.4.4",
 "react-router-redux": "^4.0.2",
 "redux": "^3.4.0",
+"redux-devtools": "^3.2.0",
 "redux-devtools-dock-monitor": "^1.1.1",
 "redux-devtools-log-monitor": "^1.0.10",
 "redux-immutable": "^3.0.6"
