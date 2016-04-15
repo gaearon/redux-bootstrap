@@ -17,18 +17,18 @@ This library handles most of the common application initialization/bootstraping 
 
 When you create a new Redux project you usually need to take care about a few things:
 
-- Install dependencies:
-- Integrate the React router with Redux
-- Create a Root reducer
-- Enable DevTools is environment is development / Disable if environment is production
-- Integrate Immutable with Redux
-- Apply middleware
-- Combine reducers into a root reducer
-- Create the store
-- Sync history with store
-- Create the Root component (Provider, Router)
-- Set the routes, history and store in the Root component
-- Render the Root component
+- Install dependencies.
+- Integrate the React router with Redux.
+- Create a Root reducer.
+- Enable DevTools is environment is development / Disable if environment is production.
+- Integrate Immutable with Redux.
+- Apply middleware.
+- Combine reducers into a root reducer.
+- Create the store.
+- Sync history with store.
+- Create the Root component (Provider, Router).
+- Set the routes, history and store in the Root component.
+- Render the Root component.
 
 Redux bootrap handles all this stuff for you! 
 
