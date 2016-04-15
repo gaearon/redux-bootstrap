@@ -21,3 +21,4 @@ wallaby.js
 .vscode
 type_definitions/*-test.js
 type_definitions/*-test.ts
+type_definitions

@@ -28,6 +28,7 @@ es
 # Dependency directory
 node_modules
 typings
+.typingsrc
 
 # Optional npm cache directory
 .npm

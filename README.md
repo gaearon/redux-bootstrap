@@ -69,23 +69,24 @@ All you need to do is import you routes file, your reducers and any additional m
 and pass them to the bootstrap function as configuration:
 
 ```ts
-import bootstrap from 'redux-bootstrap';
+import bootstrap from "redux-bootstrap";
 import routes from "./routes";
-import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
-import fooReducer from "./reducers/fooReducer";
-import barReducer from "./reducers/barReducer";
+import thunk from "redux-thunk";
+import createLogger from "redux-logger";
+import usersReducer from "./reducers/fooReducer";
+import reposReducer from "./reducers/barReducer";
 
 bootstrap({
-    container: "root",
-    routes: routes,
+    container: "root",                    // optional
+    initialState: {},                     // optional
+    middlewares: [thunk, createLogger()], // optional
     reducers: {
-        fooReducer,
-        barReducer,
+        usersReducer,
+        reposReducer,
     },
-    middleware: [thunk, createLogger()],
-    initialState: Immutable.Map()
+    routes: routes
 });
 ```
 
-That's it, you are ready to start writing your app!
+That's it, Routing, Immutable, DevTools and Hot loader are ready 
+and you can start working on your app!

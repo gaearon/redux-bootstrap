@@ -5,7 +5,11 @@
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "npm run build && mocha",
+    "build": "npm run libbuild && npm run esbuild && npm run testbuild",
+    "libbuild": "tsc -p tsconfig.json",
+    "esbuild": "tsc -p tsconfig.json --target es6 --outDir es --module es2015",
+    "testbuild": ""
   },
   "repository": {
     "type": "git",
@@ -33,5 +37,11 @@
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.10",
     "redux-immutable": "^3.0.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.0.1"
   }
 }
