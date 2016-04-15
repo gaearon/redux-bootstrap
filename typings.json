@@ -1,0 +1,18 @@
+{
+  "name": "redux-bootstrap",
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#484e00f72f5572ffaea7cbbf8bcb02ae90ec9bd4",
+    "react": "github:DefinitelyTyped/DefinitelyTyped/react/react.d.ts#b9642fb8ac07f7164dc643ddd1fa99b58ae9be8b",
+    "react-dom": "github:DefinitelyTyped/DefinitelyTyped/react/react-dom.d.ts#b9642fb8ac07f7164dc643ddd1fa99b58ae9be8b",
+    "react-redux": "github:DefinitelyTyped/DefinitelyTyped/react-redux/react-redux.d.ts#3faa118b0403f4fef613e6577ef6d27c7d2d483e",
+    "react-router": "github:DefinitelyTyped/DefinitelyTyped/react-router/react-router.d.ts#e42fc3e47141c1d94a7b776357f64940de33843e",
+    "react-router-redux": "github:DefinitelyTyped/DefinitelyTyped/react-router-redux/react-router-redux.d.ts#56295f5058cac7ae458540423c50ac2dcf9fc711",
+    "redux": "github:DefinitelyTyped/DefinitelyTyped/redux/redux.d.ts#c2bfaedeee7ae4ed5e0f01ebcf4af7acfe2c77c3",
+    "redux-devtools": "github:DefinitelyTyped/DefinitelyTyped/redux-devtools/redux-devtools.d.ts#36e2ea37c5b57e0eaa7f2cddf52a1fa255a8b8f3",
+    "redux-devtools-dock-monitor": "github:DefinitelyTyped/DefinitelyTyped/redux-devtools-dock-monitor/redux-devtools-dock-monitor.d.ts#a507ed9ef2955734b3cf362a0a74b21c7241cebc",
+    "redux-devtools-log-monitor": "github:DefinitelyTyped/DefinitelyTyped/redux-devtools-log-monitor/redux-devtools-log-monitor.d.ts#a507ed9ef2955734b3cf362a0a74b21c7241cebc",
+    "redux-immutable": "github:DefinitelyTyped/DefinitelyTyped/redux-immutable/redux-immutable.d.ts#56295f5058cac7ae458540423c50ac2dcf9fc711"
+  }
+}
