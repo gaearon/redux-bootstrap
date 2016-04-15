@@ -50,8 +50,8 @@ describe("redux-bootstrap", () => {
             initialState: {},
             middlewares: [thunk, createLogger()],
             reducers: {
-                usersReducer,
                 reposReducer,
+                usersReducer,
             },
             routes: routes
         });

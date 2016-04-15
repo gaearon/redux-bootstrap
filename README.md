@@ -72,7 +72,7 @@ and pass them to the bootstrap function as configuration:
 import bootstrap from "redux-bootstrap";
 import routes from "./routes";
 import thunk from "redux-thunk";
-import createLogger from "redux-logger";
+import * as createLogger from "redux-logger";
 import usersReducer from "./reducers/fooReducer";
 import reposReducer from "./reducers/barReducer";
 
@@ -90,3 +90,12 @@ bootstrap({
 
 That's it, Routing, Immutable, DevTools and Hot loader are ready 
 and you can start working on your app!
+
+# TypeScript support
+The npm package includes type definitions:
+
+```ts
+/// <reference path="node_modules/redux-bootstrap/type_definitions/redux-bootstrap/redux-bootstrap.d.ts" />
+```
+
+TypeScript is recommended if you want to enjoy the best development experience.
