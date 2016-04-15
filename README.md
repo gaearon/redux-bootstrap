@@ -6,7 +6,7 @@
 [![img](https://david-dm.org/remojansen/redux-bootstrap/peer-status.svg)](https://david-dm.org/remojansen/redux-bootstrap/#info=peerDependenciess)
 [![Known Vulnerabilities](https://snyk.io/test/github/remojansen/redux-bootstrap/badge.svg)](https://snyk.io/test/github/remojansen/redux-bootstrap)
 
-Bootstrapping for Redux applications.
+Bootstrapping function for Redux applications. Redux bootstrap does not generate files for you. It is not a project template or project scaffolding tool.
 
 ## Why Do I Need This?
 This library handles most of the common application initialization/bootstraping that takes place everytime you create a new Redux project.
