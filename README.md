@@ -70,14 +70,9 @@ and pass them to the bootstrap function as configuration:
 
 ```ts
 import bootstrap from 'redux-bootstrap';
-
 import routes from "./routes";
-
-// middleware
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-
-// reducers (these are just plane reducers you don't need to invoke combineReducers)
 import fooReducer from "./reducers/fooReducer";
 import barReducer from "./reducers/barReducer";
 
