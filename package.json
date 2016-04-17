@@ -5,11 +5,12 @@
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
   "scripts": {
-    "test": "npm run build && mocha",
+    "test": "npm run build && npm run testrun",
     "build": "npm run libbuild && npm run esbuild && npm run testbuild",
     "libbuild": "tsc -p tsconfig.json",
     "esbuild": "tsc -p tsconfig.json --target es6 --outDir es --module es2015",
-    "testbuild": "tsc -p tsconfig.test.json"
+    "testbuild": "tsc -p tsconfig.test.json",
+    "testrun" : "mocha temp/test/index.test.js"
   },
   "repository": {
     "type": "git",

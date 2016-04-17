@@ -15,9 +15,8 @@
         "suppressImplicitAnyIndexErrors": false,
         "outDir": "lib"
     },
-    "filesGlob": [
-        "src/**/*.tsx",
-        "src/**/*.ts"
+    "files": [
+        "src/index.tsx"
     ],
     "exclude": [
         "node_modules",
