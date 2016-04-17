@@ -146,7 +146,7 @@ class ReposPage extends React.Component<any, any> {
 // * ROUTES
 // ******************************************************************************
 const routes: JSX.Element = (
-    <Route path="/" component={AppLayout}>
+    <Route path="" component={AppLayout}>
         <IndexRoute component={Home} />
         <Route path="/users" component={UsersPage} />
         <Route path="/repos" component={ReposPage} />

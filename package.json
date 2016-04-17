@@ -12,7 +12,7 @@
     "esbuild": "tsc -p tsconfig.json --target es6 --outDir es --module es2015",
     "testbuild": "tsc -p tsconfig.test.json",
     "testrun": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js",
-    "testrunandcover": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js | ./node_modules/.bin/codecov"
+    "testrunandcover": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js && cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/remojansen/redux-bootstrap#readme",
   "dependencies": {
+    "codecov.io": "^0.1.6",
     "immutable": "^3.7.6",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
@@ -44,7 +45,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "codecov.io": "^0.1.6",
     "jsdom": "^8.4.0",
     "mocha": "^2.4.5",
     "redux-logger": "^2.6.1",
