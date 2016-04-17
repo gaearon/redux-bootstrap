@@ -5,12 +5,14 @@
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
   "scripts": {
-    "test": "npm run build && npm run testrun",
+    "test": "npm run build && npm run testrunandcover",
+    "dev": "npm run build && npm run testrun",
     "build": "npm run libbuild && npm run esbuild && npm run testbuild",
     "libbuild": "tsc -p tsconfig.json",
     "esbuild": "tsc -p tsconfig.json --target es6 --outDir es --module es2015",
     "testbuild": "tsc -p tsconfig.test.json",
-    "testrun" : "mocha temp/test/index.test.js"
+    "testrun" : "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js",
+    "testrunandcover" : "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js | ./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
@@ -29,7 +31,6 @@
   "homepage": "https://github.com/remojansen/redux-bootstrap#readme",
   "dependencies": {
     "immutable": "^3.7.6",
-    "jsdom": "^8.4.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.4",
@@ -42,6 +43,7 @@
     "redux-immutable": "^3.0.6"
   },
   "devDependencies": {
+    "jsdom": "^8.4.0",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "redux-logger": "^2.6.1",

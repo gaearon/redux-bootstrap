@@ -7,9 +7,9 @@
 $ git clone https://github.com/YOUR_USERNAME/redux-bootstrap.git
 ```
 
-2 - Install typings:
+2 - Install global npm dependencies:
 ```
-$ npm install -g typings
+$ npm install -g typescript typings istanbul
 ```
 
 3 - Install type definitions:
@@ -22,9 +22,9 @@ $ typings install
 $ npm install
 ```
 
-5 - Run build process
+5 - Run development build process
 ```
-$ gulp
+$ npm run dev
 ```
 
 ## Guidelines

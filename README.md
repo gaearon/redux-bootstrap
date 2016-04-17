@@ -1,5 +1,6 @@
 # redux-bootstrap
 [![Build Status](https://travis-ci.org/remojansen/redux-bootstrap.svg?branch=master)](https://travis-ci.org/remojansen/redux-bootstrap)
+[![codecov.io](https://codecov.io/github/remojansen/redux-bootstrap/coverage.svg?branch=master)](https://codecov.io/github/remojansen/redux-bootstrap?branch=master)
 [![npm version](https://badge.fury.io/js/redux-bootstrap.svg)](https://badge.fury.io/js/redux-bootstrap)
 [![Dependencies](https://david-dm.org/remojansen/redux-bootstrap.svg)](https://david-dm.org/remojansen/redux-bootstrap#info=dependencies)
 [![img](https://david-dm.org/remojansen/redux-bootstrap/dev-status.svg)](https://david-dm.org/remojansen/redux-bootstrap/#info=devDependencies)
@@ -43,16 +44,19 @@ npm install --save redux-bootstrap
 The preceding command will install `redux-bootstrap` and the following dependencies:
 
 ```json
-"immutable": "^3.7.6",
-"react": "^15.0.1",
-"react-dom": "^15.0.1",
-"react-redux": "^4.4.4",
-"react-router-redux": "^4.0.2",
-"redux": "^3.4.0",
-"redux-devtools": "^3.2.0",
-"redux-devtools-dock-monitor": "^1.1.1",
-"redux-devtools-log-monitor": "^1.0.10",
-"redux-immutable": "^3.0.6"
+"dependencies": {
+    "immutable": "^3.7.6",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.4",
+    "react-router": "^2.2.4",
+    "react-router-redux": "^4.0.2",
+    "redux": "^3.4.0",
+    "redux-devtools": "^3.2.0",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.10",
+    "redux-immutable": "^3.0.6"
+}
 ```
  
 Then use the bootstrap function in your application's entry point.
