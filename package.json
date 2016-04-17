@@ -11,8 +11,8 @@
     "libbuild": "tsc -p tsconfig.json",
     "esbuild": "tsc -p tsconfig.json --target es6 --outDir es --module es2015",
     "testbuild": "tsc -p tsconfig.test.json",
-    "testrun" : "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js",
-    "testrunandcover" : "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js | ./node_modules/.bin/codecov"
+    "testrun": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js",
+    "testrunandcover": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js | ./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
@@ -43,8 +43,9 @@
     "redux-immutable": "^3.0.6"
   },
   "devDependencies": {
-    "jsdom": "^8.4.0",
     "chai": "^3.5.0",
+    "codecov.io": "^0.1.6",
+    "jsdom": "^8.4.0",
     "mocha": "^2.4.5",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1"

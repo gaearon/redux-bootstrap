@@ -8,5 +8,5 @@ node_js:
 - 5.1.1
 - '0.12'
 before_install:
-- npm install -g typescript typings istanbul codecov.io
+- npm install -g typescript typings istanbul
 - typings install
