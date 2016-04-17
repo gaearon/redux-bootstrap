@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": false,
+        "outDir": "temp"
+    },
+    "files": [
+        "test/index.test.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        "wwwroot",
+        "typings/main",
+        "typings/main.d.ts",
+        "type_definitions"
+    ]
+}

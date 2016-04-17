@@ -1,5 +1,6 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
+import "./dom";
 import { expect } from "chai";
 import thunk from "redux-thunk";
 import * as createLogger from "redux-logger";

@@ -24,6 +24,7 @@ coverage
 build/Release
 lib
 es
+temp
 
 # Dependency directory
 node_modules

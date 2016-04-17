@@ -9,7 +9,7 @@
     "build": "npm run libbuild && npm run esbuild && npm run testbuild",
     "libbuild": "tsc -p tsconfig.json",
     "esbuild": "tsc -p tsconfig.json --target es6 --outDir es --module es2015",
-    "testbuild": ""
+    "testbuild": "tsc -p tsconfig.test.json"
   },
   "repository": {
     "type": "git",
@@ -28,9 +28,11 @@
   "homepage": "https://github.com/remojansen/redux-bootstrap#readme",
   "dependencies": {
     "immutable": "^3.7.6",
+    "jsdom": "^8.4.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.4",
+    "react-router": "^2.2.4",
     "react-router-redux": "^4.0.2",
     "redux": "^3.4.0",
     "redux-devtools": "^3.2.0",

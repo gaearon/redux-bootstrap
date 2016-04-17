@@ -4,6 +4,7 @@ import * as React from "react";
 import { Route } from "react-router";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import * as Immutable from "immutable";
 
 // ******************************************************************************
 // * UTILS
@@ -121,21 +122,29 @@ const routes: JSX.Element = (
 // ******************************************************************************
 // * REDUCERS
 // ******************************************************************************
-const usersReducer: Redux.Reducer = (previousState, action) => {
+const defaultUsersState = Immutable.fromJS({
+    usersCount: 0
+});
+
+const usersReducer: Redux.Reducer = (previousState: any = defaultUsersState, action: any) => {
     switch (action.type) {
         case ACTION_TYPES.ADD_USER_BEGIN:
         case ACTION_TYPES.ADD_USER_SUCCESS:
         default:
-            // TODO
+            return previousState;
     }
 };
 
-const reposReducer: Redux.Reducer = (previousState, action) => {
+const defaultReposState = Immutable.fromJS({
+    reposCount: 0
+});
+
+const reposReducer: Redux.Reducer = (previousState: any = defaultReposState, action: any) => {
     switch (action.type) {
         case ACTION_TYPES.ADD_REPO_BEGIN:
         case ACTION_TYPES.ADD_REPO_SUCCESS:
         default:
-            // TODO
+            return previousState;
     }
 };
 
