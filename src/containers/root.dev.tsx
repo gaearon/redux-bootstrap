@@ -11,7 +11,9 @@ export default class Root extends React.Component<RootComponentProps, void> {
     return (
       <Provider store={store}>
         <div>
-          <Router history={history} routes={routes} />
+          <Router history={history}>
+            {routes}
+          </Router>
           <DevTools />
         </div>
       </Provider>

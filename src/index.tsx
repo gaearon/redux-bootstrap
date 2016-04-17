@@ -22,12 +22,12 @@ let routerReducer = (state = initialRouterReducerState, action: any) => {
     return state;
 };
 
-function bootstrap(options: BoostrapOptions) {
+function bootstrap(options: BoostrapOptions): Redux.Store {
 
     // Validate options and set defaults
-    if (options === undefined) { throw new Error(); };
-    if (options.routes === undefined) { throw new Error(); };
-    if (options.reducers === undefined) { throw new Error(); };
+    if (options === undefined) { throw new TypeError("Null argument options."); };
+    if (options.routes === undefined) { throw new TypeError("Invalid configuration field: routes."); };
+    if (options.reducers === undefined) { throw new TypeError("Invalid configuration field: reducers."); };
 
     // mandatory
     let routes = options.routes;
@@ -40,7 +40,7 @@ function bootstrap(options: BoostrapOptions) {
     let middlewares = options.middlewares || [];
 
     // Define the root reducer
-    reducers.router = routerReducer;
+    reducers.routing = routerReducer;
     let rootReducer = combineReducers(reducers);
 
     // Configure store
@@ -48,7 +48,7 @@ function bootstrap(options: BoostrapOptions) {
 
     // Create an enhanced history that syncs navigation events with the store
     let history = syncHistoryWithStore(browserHistory, store, {
-        selectLocationState: (state: any) => state.get("router").toJS()
+        selectLocationState: (state: any) => state.get("routing").toJS()
     });
 
     // Render Root coponent
@@ -56,6 +56,8 @@ function bootstrap(options: BoostrapOptions) {
         <Root store={store} history={history} routes={routes} />,
         document.getElementById(container)
     );
+
+    return store;
 
 }
 

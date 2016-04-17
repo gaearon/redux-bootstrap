@@ -13,12 +13,5 @@ export default function configureStore(middlewares: Redux.Middleware[], rootRedu
         )
     );
 
-    // Enable Webpack hot module replacement for reducers
-    if (module.hot) {
-        module.hot.accept("../reducers", () => {
-            store.replaceReducer(rootReducer);
-        });
-    }
-
     return store;
 }

@@ -3,7 +3,14 @@
 let jsdom = require("jsdom");
 
 // setup the simplest document possible
-let doc = jsdom.jsdom("<!doctype html><html><body></body></html>");
+let doc = jsdom.jsdom(`
+    <!doctype html>
+    <html>
+        <body>
+            <div id="root"/><div>
+        </body>
+    </html>
+`);
 
 // get the window object out of the document
 let win = doc.defaultView;

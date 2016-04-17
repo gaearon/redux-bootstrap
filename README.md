@@ -80,8 +80,21 @@ bootstrap({
 });
 ```
 
-That's it, Routing, Immutable, DevTools and Hot loader are ready 
-and you can start working on your app!
+That's it, Routing, Immutable, DevTools are ready and you can start working on your app!
+
+# Accessing the Store
+Sometimes you need to access the store. For example when enabling hot loader:
+
+```
+const store = bootstrap({/* ... */});
+
+if (module.hot) {
+    module.hot.accept("../reducers", () => {
+        const nextRootReducer = require("../reducers/index");
+        store.replaceReducer(nextRootReducer);
+    });
+}
+```
 
 # TypeScript support
 The npm package includes type definitions:

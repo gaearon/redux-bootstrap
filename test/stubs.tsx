@@ -1,7 +1,7 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
 import * as React from "react";
-import { Route } from "react-router";
+import { IndexRoute, Route, Link } from "react-router";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Immutable from "immutable";
@@ -29,8 +29,23 @@ class AppLayout extends React.Component<any, any> {
     const children  = this.props.children;
         return (
             <div>
+                <div>
+                    <Link to="/users">Users</Link>
+                    <Link to="/repos">Repos</Link>
+                </div>
                 {children}
             </div>
+        );
+    }
+}
+
+// ******************************************************************************
+// * HOME
+// ******************************************************************************
+class Home extends React.Component<any, any> {
+    public render() {
+        return (
+            <div>Home!</div>
         );
     }
 }
@@ -55,12 +70,15 @@ let addUserAsync =  () => {
         dispatch(addUserBegin());
         // fake delay
         setTimeout(() => { dispatch(addUserSuccess()); }, (Math.floor(Math.random() * 6) + 500));
-    }
+    };
 };
 
 let userActions = { addUserAsync, addUserBegin, addUserSuccess };
 
-function mapStateToPropsUserPage(state: any) { return { users: state.users }; }
+function mapStateToPropsUserPage(state: any) {
+    return state.users;
+}
+
 function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch) {
     return { actions : bindActionCreators(userActions, dispatch) };
 }
@@ -71,8 +89,14 @@ function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch) {
 @connect(mapStateToPropsUserPage, mapDispatchToPropsUserPage)
 class UsersPage extends React.Component<any, any> {
     public render() {
+        let label = this.props.loading ? "Loading..." : this.props.usersCount;
         return (
-            <div>Users Page!</div>
+            <div>
+                <div>Users Page!</div>
+                <div>
+                    <p>User count: <span id="user_count">{label}</span></p>
+                </div>
+            </div>
         );
     }
 }
@@ -87,12 +111,15 @@ let addRepoAsync =  () => {
         dispatch(addRepoBegin());
         // fake delay
         setTimeout(() => { dispatch(addRepoSuccess()); }, (Math.floor(Math.random() * 6) + 500));
-    }
+    };
 };
 
 let repoActions = { addRepoAsync, addRepoBegin, addRepoSuccess };
 
-function mapStateToPropsReposPage(state: any) { return { repos: state.repos }; }
+function mapStateToPropsReposPage(state: any) {
+    return state.repos;
+}
+
 function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
     return { actions : bindActionCreators(repoActions, dispatch) };
 }
@@ -103,8 +130,14 @@ function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
 @connect(mapStateToPropsReposPage, mapDispatchToPropsReposPage)
 class ReposPage extends React.Component<any, any> {
     public render() {
+        let label = this.props.loading ? "Loading..." : this.props.reposCount;
         return (
-            <div>Repos Page!</div>
+            <div>
+                <div>Repos Page!</div>
+                <div>
+                    <p>Repo count: <span id="repo_count">{label}</span></p>
+                </div>
+            </div>
         );
     }
 }
@@ -113,7 +146,8 @@ class ReposPage extends React.Component<any, any> {
 // * ROUTES
 // ******************************************************************************
 const routes: JSX.Element = (
-    <Route component={AppLayout}>
+    <Route path="/" component={AppLayout}>
+        <IndexRoute component={Home} />
         <Route path="/users" component={UsersPage} />
         <Route path="/repos" component={ReposPage} />
     </Route>
@@ -123,26 +157,38 @@ const routes: JSX.Element = (
 // * REDUCERS
 // ******************************************************************************
 const defaultUsersState = Immutable.fromJS({
+    loading: false,
     usersCount: 0
 });
 
 const usersReducer: Redux.Reducer = (previousState: any = defaultUsersState, action: any) => {
     switch (action.type) {
         case ACTION_TYPES.ADD_USER_BEGIN:
+            return previousState.set("loading", true);
         case ACTION_TYPES.ADD_USER_SUCCESS:
+            return previousState.merge({
+                loading: false,
+                reposCount: (previousState.get("usersCount") + 1)
+            });
         default:
             return previousState;
     }
 };
 
 const defaultReposState = Immutable.fromJS({
+    loading: false,
     reposCount: 0
 });
 
 const reposReducer: Redux.Reducer = (previousState: any = defaultReposState, action: any) => {
     switch (action.type) {
         case ACTION_TYPES.ADD_REPO_BEGIN:
+            return previousState.set("loading", true);
         case ACTION_TYPES.ADD_REPO_SUCCESS:
+            return previousState.merge({
+                loading: false,
+                reposCount: (previousState.get("reposCount") + 1)
+            });
         default:
             return previousState;
     }

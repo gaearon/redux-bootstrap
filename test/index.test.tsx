@@ -13,13 +13,15 @@ describe("redux-bootstrap", () => {
 
         let b: any = bootstrap;
 
-        let throw1 = () => {
+        let throw1 = () => { b(); };
+
+        let throw2 = () => {
             b({
                 routes: routes
             });
         };
 
-        let throw2 = () => {
+        let throw3 = () => {
             b({
                 reducers: {
                     repos: reposReducer,
@@ -38,8 +40,9 @@ describe("redux-bootstrap", () => {
             });
         };
 
-        expect(throw1).to.throw();
-        expect(throw2).to.throw();
+        expect(throw1).to.throw("Null argument options.");
+        expect(throw2).to.throw("Invalid configuration field: reducers.");
+        expect(throw3).to.throw("Invalid configuration field: routes.");
         expect(notThrow).not.to.throw();
 
     });
@@ -51,11 +54,13 @@ describe("redux-bootstrap", () => {
             initialState: {},
             middlewares: [thunk, createLogger()],
             reducers: {
-                reposReducer,
-                usersReducer,
+                repos: reposReducer,
+                users: usersReducer,
             },
             routes: routes
         });
+
+        console.log(document.getElementById("user_count").innerHTML);
 
     });
 
