@@ -60,7 +60,7 @@ describe("redux-bootstrap", () => {
             routes: routes
         });
 
-        console.log(document.getElementById("user_count").innerHTML);
+        // console.log(document.getElementById("user_count").innerHTML);
 
     });
 
