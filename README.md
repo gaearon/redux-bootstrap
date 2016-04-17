@@ -86,7 +86,7 @@ bootstrap({
 
 That's it, Routing, Immutable, DevTools are ready and you can start working on your app!
 
-# Accessing the Store
+# Accessing The Store
 Sometimes you need to access the store. For example when enabling hot loader:
 
 ```
@@ -100,7 +100,7 @@ if (module.hot) {
 }
 ```
 
-# TypeScript support
+# TypeScript Support
 The npm package includes type definitions:
 
 ```ts

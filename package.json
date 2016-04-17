@@ -12,7 +12,7 @@
     "esbuild": "tsc -p tsconfig.json --target es6 --outDir es --module es2015",
     "testbuild": "tsc -p tsconfig.test.json",
     "testrun": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js",
-    "testrunandcover": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R nyan temp/test/index.test.js && spec ./coverage/lcov.info | ./node_modules/.bin/codecov"
+    "testrunandcover": "istanbul cover --report lcov node_modules/.bin/_mocha -- -R spec temp/test/index.test.js && cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
   },
   "repository": {
     "type": "git",
