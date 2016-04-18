@@ -214,4 +214,4 @@ function getReducers(): ReducersOption {
     return reducers;
 }
 
-export { AppLayout, UsersPage, ReposPage, getRoutes, getReducers };
+export { getRoutes, getReducers };
