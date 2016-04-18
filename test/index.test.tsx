@@ -1,14 +1,15 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
 import thunk from "redux-thunk";
+import * as createLogger from "redux-logger";
 import * as $ from "jquery";
+import { expect } from "chai";
 import bootstrap from "../src/index";
 import { getRoutes, getReducers } from "./stubs";
+import * as ReactTestUtils from "react-addons-test-utils";
 
-let expect = chai.expect;
-
-console.log("----------->", window.location.href);
-$("body").html(`<div id="root"/><div>`);
+history.pushState({}, "", "/");
+$("body").append(`<div id="root"/><div>`);
 
 describe("redux-bootstrap", () => {
 
@@ -41,7 +42,7 @@ describe("redux-bootstrap", () => {
         bootstrap({
             container: "root",
             initialState: {},
-            middlewares: [thunk],
+            middlewares: [thunk, createLogger()],
             reducers: getReducers(),
             routes: getRoutes()
         });
@@ -54,7 +55,8 @@ describe("redux-bootstrap", () => {
         });
 
         it("Should be able to navigate to a page.", (done) => {
-            $("#link_to_users").trigger("click");
+            let userLink = document.getElementById("link_to_users");
+            ReactTestUtils.Simulate.click(userLink);
             setTimeout(() => {
                 expect($("#users_page_title").text()).eql("Users Page!");
                 done();

@@ -89,7 +89,7 @@ function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch) {
 @connect(mapStateToPropsUserPage, mapDispatchToPropsUserPage)
 class UsersPage extends React.Component<any, any> {
     public render() {
-        let label = this.props.loading ? "Loading..." : this.props.usersCount;
+        let label = this.props.get("loading") ? "Loading..." : this.props.get("usersCount");
         return (
             <div>
                 <div id="users_page_title">Users Page!</div>
@@ -131,7 +131,7 @@ function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
 @connect(mapStateToPropsReposPage, mapDispatchToPropsReposPage)
 class ReposPage extends React.Component<any, any> {
     public render() {
-        let label = this.props.loading ? "Loading..." : this.props.reposCount;
+        let label = this.props.get("loading") ? "Loading..." : this.props.get("reposCount");
         return (
             <div>
                 <div id="repos_page_title">Repos Page!</div>
