@@ -4,7 +4,6 @@
 [![npm version](https://badge.fury.io/js/redux-bootstrap.svg)](https://badge.fury.io/js/redux-bootstrap)
 [![Dependencies](https://david-dm.org/remojansen/redux-bootstrap.svg)](https://david-dm.org/remojansen/redux-bootstrap#info=dependencies)
 [![img](https://david-dm.org/remojansen/redux-bootstrap/dev-status.svg)](https://david-dm.org/remojansen/redux-bootstrap/#info=devDependencies)
-[![img](https://david-dm.org/remojansen/redux-bootstrap/peer-status.svg)](https://david-dm.org/remojansen/redux-bootstrap/#info=peerDependenciess)
 [![Known Vulnerabilities](https://snyk.io/test/github/remojansen/redux-bootstrap/badge.svg)](https://snyk.io/test/github/remojansen/redux-bootstrap)
 
 
@@ -87,10 +86,17 @@ bootstrap({
 
 That's it, Routing, Immutable, DevTools are ready and you can start working on your app!
 
+# Using combineReducers
+Redux bootstrap uses Immutable.js. The `combineReducers` function from redux don't work with immutable state but you can use the `redux-immutbale` `combineReducers` function to tolve this problem:
+
+```ts
+import { combineReducers } from "redux-immutable";
+```
+
 # Accessing The Store
 Sometimes you need to access the store. For example when enabling hot loader:
 
-```
+```ts
 const store = bootstrap({/* ... */});
 
 if (module.hot) {
