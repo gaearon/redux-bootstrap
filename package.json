@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/remojansen/redux-bootstrap#readme",
   "dependencies": {
-    "codecov.io": "^0.1.6",
     "immutable": "^3.7.6",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
