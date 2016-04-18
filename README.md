@@ -11,7 +11,8 @@
 [![NPM](https://nodei.co/npm/redux-bootstrap.png?downloads=true&downloadRank=true)](https://nodei.co/npm/redux-bootstrap/)
 [![NPM](https://nodei.co/npm-dl/redux-bootstrap.png?months=9&height=3)](https://nodei.co/npm/redux-bootstrap/)
 
-Bootstrapping function for Redux applications. Redux bootstrap does not generate files for you. It is not a project template or project scaffolding tool.
+Bootstrapping function for Redux applications. Redux bootstrap does not generate files for you. 
+It is not a project template or project scaffolding tool and it is not related with Bootstrap (responsive web apps framework).
 
 ## Why Do I Need This?
 This library handles most of the common application initialization/bootstraping that takes place everytime you create a new Redux project.
@@ -69,8 +70,8 @@ import bootstrap from "redux-bootstrap";
 import routes from "./routes";
 import thunk from "redux-thunk";
 import * as createLogger from "redux-logger";
-import usersReducer from "./reducers/fooReducer";
-import reposReducer from "./reducers/barReducer";
+import usersReducer from "./reducers/usersReducer";
+import reposReducer from "./reducers/reposReducer";
 
 bootstrap({
     container: "root",                    // optional

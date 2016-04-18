@@ -5,9 +5,7 @@ import { Provider } from "react-redux";
 import DevTools from "./dev_tools";
 import { Router } from "react-router";
 
-export default class Root extends React.Component<RootComponentProps, void> {
-  public render() {
-    const { store, history, routes } = this.props;
+export default function getRoot(store: Redux.Store, history: ReactRouterRedux.ReactRouterReduxHistory, routes: JSX.Element) {
     return (
       <Provider store={store}>
         <div>
@@ -17,6 +15,5 @@ export default class Root extends React.Component<RootComponentProps, void> {
           <DevTools />
         </div>
       </Provider>
-    );
-  }
+   );
 }

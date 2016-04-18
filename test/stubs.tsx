@@ -26,14 +26,14 @@ function makeActionCreator(type: string, ...argNames: string[]) {
 // ******************************************************************************
 class AppLayout extends React.Component<any, any> {
     public render() {
-    const children  = this.props.children;
         return (
             <div>
                 <div>
-                    <Link to="/users">Users</Link>
-                    <Link to="/repos">Repos</Link>
+                    <Link id="link_to_home" className="link_to" to="/">Home</Link>
+                    <Link id="link_to_users" className="link_to" to="/users">Users</Link>
+                    <Link id="link_to_repos" className="link_to" to="/repos">Repos</Link>
                 </div>
-                {children}
+                {this.props.children}
             </div>
         );
     }
@@ -45,7 +45,7 @@ class AppLayout extends React.Component<any, any> {
 class Home extends React.Component<any, any> {
     public render() {
         return (
-            <div>Home!</div>
+            <div id="home_page_title">Home Page!</div>
         );
     }
 }
@@ -69,7 +69,7 @@ let addUserAsync =  () => {
     return (dispatch: Redux.Dispatch) => {
         dispatch(addUserBegin());
         // fake delay
-        setTimeout(() => { dispatch(addUserSuccess()); }, (Math.floor(Math.random() * 6) + 500));
+        setTimeout(() => { dispatch(addUserSuccess()); }, 200);
     };
 };
 
@@ -92,9 +92,10 @@ class UsersPage extends React.Component<any, any> {
         let label = this.props.loading ? "Loading..." : this.props.usersCount;
         return (
             <div>
-                <div>Users Page!</div>
+                <div id="users_page_title">Users Page!</div>
                 <div>
                     <p>User count: <span id="user_count">{label}</span></p>
+                    <button if="add_user_btn" onClick={() => { this.props.actions.addUserAsync(); }}>Add User</button>
                 </div>
             </div>
         );
@@ -110,7 +111,7 @@ let addRepoAsync =  () => {
     return (dispatch: Redux.Dispatch) => {
         dispatch(addRepoBegin());
         // fake delay
-        setTimeout(() => { dispatch(addRepoSuccess()); }, (Math.floor(Math.random() * 6) + 500));
+        setTimeout(() => { dispatch(addRepoSuccess()); }, 200);
     };
 };
 
@@ -133,9 +134,10 @@ class ReposPage extends React.Component<any, any> {
         let label = this.props.loading ? "Loading..." : this.props.reposCount;
         return (
             <div>
-                <div>Repos Page!</div>
+                <div id="repos_page_title">Repos Page!</div>
                 <div>
                     <p>Repo count: <span id="repo_count">{label}</span></p>
+                    <button onClick={() => { this.props.actions.addRepoAsync(); }}>Add Repo</button>
                 </div>
             </div>
         );
@@ -145,53 +147,65 @@ class ReposPage extends React.Component<any, any> {
 // ******************************************************************************
 // * ROUTES
 // ******************************************************************************
-const routes: JSX.Element = (
-    <Route path="" component={AppLayout}>
-        <IndexRoute component={Home} />
-        <Route path="/users" component={UsersPage} />
-        <Route path="/repos" component={ReposPage} />
-    </Route>
-);
+function getRoutes() {
+    return (
+        <Route path="/" component={AppLayout}>
+            <IndexRoute component={Home} />
+            <Route path="/users" component={UsersPage} />
+            <Route path="/repos" component={ReposPage} />
+        </Route>
+    );
+}
 
 // ******************************************************************************
 // * REDUCERS
 // ******************************************************************************
-const defaultUsersState = Immutable.fromJS({
-    loading: false,
-    usersCount: 0
-});
+function getReducers(): ReducersOption {
 
-const usersReducer: Redux.Reducer = (previousState: any = defaultUsersState, action: any) => {
-    switch (action.type) {
-        case ACTION_TYPES.ADD_USER_BEGIN:
-            return previousState.set("loading", true);
-        case ACTION_TYPES.ADD_USER_SUCCESS:
-            return previousState.merge({
-                loading: false,
-                reposCount: (previousState.get("usersCount") + 1)
-            });
-        default:
-            return previousState;
-    }
-};
+    const defaultUsersState = Immutable.fromJS({
+        loading: false,
+        usersCount: 0
+    });
 
-const defaultReposState = Immutable.fromJS({
-    loading: false,
-    reposCount: 0
-});
+    const usersReducer: Redux.Reducer = (previousState: any = defaultUsersState, action: any) => {
+        switch (action.type) {
+            case ACTION_TYPES.ADD_USER_BEGIN:
+                return previousState.set("loading", true);
+            case ACTION_TYPES.ADD_USER_SUCCESS:
+                return previousState.merge({
+                    loading: false,
+                    reposCount: (previousState.get("usersCount") + 1)
+                });
+            default:
+                return previousState;
+        }
+    };
 
-const reposReducer: Redux.Reducer = (previousState: any = defaultReposState, action: any) => {
-    switch (action.type) {
-        case ACTION_TYPES.ADD_REPO_BEGIN:
-            return previousState.set("loading", true);
-        case ACTION_TYPES.ADD_REPO_SUCCESS:
-            return previousState.merge({
-                loading: false,
-                reposCount: (previousState.get("reposCount") + 1)
-            });
-        default:
-            return previousState;
-    }
-};
+    const defaultReposState = Immutable.fromJS({
+        loading: false,
+        reposCount: 0
+    });
 
-export { AppLayout, UsersPage, ReposPage, routes, usersReducer, reposReducer };
+    const reposReducer: Redux.Reducer = (previousState: any = defaultReposState, action: any) => {
+        switch (action.type) {
+            case ACTION_TYPES.ADD_REPO_BEGIN:
+                return previousState.set("loading", true);
+            case ACTION_TYPES.ADD_REPO_SUCCESS:
+                return previousState.merge({
+                    loading: false,
+                    reposCount: (previousState.get("reposCount") + 1)
+                });
+            default:
+                return previousState;
+        }
+    };
+
+    let reducers: ReducersOption = {
+        repos: reposReducer,
+        users: usersReducer
+    };
+
+    return reducers;
+}
+
+export { AppLayout, UsersPage, ReposPage, getRoutes, getReducers };
