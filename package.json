@@ -1,6 +1,6 @@
 {
   "name": "redux-bootstrap",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Bootstrapping for Redux applications",
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
