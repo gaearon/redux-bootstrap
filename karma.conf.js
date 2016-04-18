@@ -2,7 +2,7 @@ module.exports = function (config) {
   "use strict";
 
   config.set({
-    singleRun: false,
+    singleRun: true,
     basePath: "",
     frameworks: ["mocha", "chai"],
     browsers: [

@@ -1,7 +1,7 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
 import thunk from "redux-thunk";
-import * as createLogger from "redux-logger";
+// import * as createLogger from "redux-logger";
 import * as $ from "jquery";
 import { expect } from "chai";
 import bootstrap from "../src/index";
@@ -42,7 +42,7 @@ describe("redux-bootstrap", () => {
         bootstrap({
             container: "root",
             initialState: {},
-            middlewares: [thunk, createLogger()],
+            middlewares: [thunk],
             reducers: getReducers(),
             routes: getRoutes()
         });
@@ -55,34 +55,37 @@ describe("redux-bootstrap", () => {
         });
 
         it("Should be able to navigate to a page.", (done) => {
-            let userLink = document.getElementById("link_to_users");
-            ReactTestUtils.Simulate.click(userLink);
+            let usersLink = document.getElementById("link_to_users");
+            usersLink.click();
             setTimeout(() => {
                 expect($("#users_page_title").text()).eql("Users Page!");
                 done();
-            }, 1000);
+            }, 30);
         });
 
-        it("Should be able to another to a page.", (done) => {
-            $("#link_to_users").trigger("click");
+        it("Should be able to navigate to another to a page.", (done) => {
+            let reposLink = document.getElementById("link_to_repos");
+            reposLink.click();
             setTimeout(() => {
                 expect($("#repos_page_title").text()).eql("Repos Page!");
                 done();
-            }, 1000);
+            }, 30);
         });
 
         it("Should be able to return to the home page.", (done) => {
-            $("#link_to_home").trigger("click");
+            let homeLink = document.getElementById("link_to_home");
+            homeLink.click();
             setTimeout(() => {
-                expect($("#repos_page_title").text()).eql("Home Page!");
+                expect($("#home_page_title").text()).eql("Home Page!");
                 done();
-            }, 1000);
+            }, 50);
         });
 
         it("Should be able to interact.", (done) => {
 
             // go to user page
-            $("#link_to_users").trigger("click");
+            let usersLink = document.getElementById("link_to_users");
+            usersLink.click();
 
             setTimeout(() => {
 
@@ -91,20 +94,16 @@ describe("redux-bootstrap", () => {
                 expect($("#user_count").text()).eql("0");
 
                 // trigger increase counter
-                $("#add_user_btn").trigger("click");
-
-                // show loadding
-                setTimeout(() => {
-                    expect($("#user_count").text()).eql("Loading...");
-                }, 100);
+                let addUserBtn = document.getElementById("add_user_btn");
+                addUserBtn.click();
 
                 // update counter
                 setTimeout(() => {
                     expect($("#user_count").text()).eql("1");
                     done();
-                }, 300);
+                }, 30);
 
-            }, 1000);
+            }, 30);
 
         });
 

@@ -69,14 +69,14 @@ let addUserAsync =  () => {
     return (dispatch: Redux.Dispatch) => {
         dispatch(addUserBegin());
         // fake delay
-        setTimeout(() => { dispatch(addUserSuccess()); }, 200);
+        setTimeout(() => { dispatch(addUserSuccess()); }, 20);
     };
 };
 
 let userActions = { addUserAsync, addUserBegin, addUserSuccess };
 
 function mapStateToPropsUserPage(state: any) {
-    return state.users;
+    return { users: state.get("users") };
 }
 
 function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch) {
@@ -89,13 +89,16 @@ function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch) {
 @connect(mapStateToPropsUserPage, mapDispatchToPropsUserPage)
 class UsersPage extends React.Component<any, any> {
     public render() {
-        let label = this.props.get("loading") ? "Loading..." : this.props.get("usersCount");
+        let label = "Loading...";
+        if (this.props.users !== undefined && this.props.users.get("loading") === false) {
+            label = this.props.users.get("usersCount");
+        }
         return (
             <div>
                 <div id="users_page_title">Users Page!</div>
                 <div>
                     <p>User count: <span id="user_count">{label}</span></p>
-                    <button if="add_user_btn" onClick={() => { this.props.actions.addUserAsync(); }}>Add User</button>
+                    <button id="add_user_btn" onClick={() => { this.props.actions.addUserAsync(); }}>Add User</button>
                 </div>
             </div>
         );
@@ -111,14 +114,14 @@ let addRepoAsync =  () => {
     return (dispatch: Redux.Dispatch) => {
         dispatch(addRepoBegin());
         // fake delay
-        setTimeout(() => { dispatch(addRepoSuccess()); }, 200);
+        setTimeout(() => { dispatch(addRepoSuccess()); }, 20);
     };
 };
 
 let repoActions = { addRepoAsync, addRepoBegin, addRepoSuccess };
 
 function mapStateToPropsReposPage(state: any) {
-    return state.repos;
+    return { repos: state.get("repos") };
 }
 
 function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
@@ -131,13 +134,16 @@ function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
 @connect(mapStateToPropsReposPage, mapDispatchToPropsReposPage)
 class ReposPage extends React.Component<any, any> {
     public render() {
-        let label = this.props.get("loading") ? "Loading..." : this.props.get("reposCount");
+        let label = "Loading...";
+        if (this.props.repos !== undefined && this.props.repos.get("loading") === false) {
+            label = this.props.repos.get("reposCount");
+        }
         return (
             <div>
                 <div id="repos_page_title">Repos Page!</div>
                 <div>
                     <p>Repo count: <span id="repo_count">{label}</span></p>
-                    <button onClick={() => { this.props.actions.addRepoAsync(); }}>Add Repo</button>
+                    <button id="add_repo_btn" onClick={() => { this.props.actions.addRepoAsync(); }}>Add Repo</button>
                 </div>
             </div>
         );
@@ -174,7 +180,7 @@ function getReducers(): ReducersOption {
             case ACTION_TYPES.ADD_USER_SUCCESS:
                 return previousState.merge({
                     loading: false,
-                    reposCount: (previousState.get("usersCount") + 1)
+                    usersCount: (previousState.get("usersCount") + 1)
                 });
             default:
                 return previousState;
