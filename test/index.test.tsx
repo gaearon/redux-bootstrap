@@ -6,7 +6,6 @@ import * as $ from "jquery";
 import { expect } from "chai";
 import bootstrap from "../src/index";
 import { getRoutes, getReducers } from "./stubs";
-import * as ReactTestUtils from "react-addons-test-utils";
 
 history.pushState({}, "", "/");
 $("body").append(`<div id="root"/><div>`);
