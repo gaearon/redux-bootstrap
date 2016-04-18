@@ -37,6 +37,17 @@ typings
 # Optional REPL history
 .node_repl_history
 
-#js in ts folder
+# js in ts folders
+
 src/**/*.js
 src/**/*.*.js
+
+test/*.js
+test/*.*.js
+test/**/*.js
+test/**/*.*.js
+
+type_definitions/*.js
+type_definitions/*.*.js
+type_definitions/**/*.js
+type_definitions/**/*.*.js

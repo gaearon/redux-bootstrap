@@ -1,12 +1,14 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
-import "./dom";
-import { expect } from "chai";
 import thunk from "redux-thunk";
-import * as createLogger from "redux-logger";
+import * as $ from "jquery";
 import bootstrap from "../src/index";
 import { getRoutes, getReducers } from "./stubs";
-import * as $ from "jquery";
+
+let expect = chai.expect;
+
+console.log("----------->", window.location.href);
+$("body").html(`<div id="root"/><div>`);
 
 describe("redux-bootstrap", () => {
 
@@ -39,7 +41,7 @@ describe("redux-bootstrap", () => {
         bootstrap({
             container: "root",
             initialState: {},
-            middlewares: [thunk, createLogger()],
+            middlewares: [thunk],
             reducers: getReducers(),
             routes: getRoutes()
         });
