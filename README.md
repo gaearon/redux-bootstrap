@@ -16,7 +16,7 @@ It is not a project template or project scaffolding tool and it is not related w
 ## Why Do I Need This?
 This library handles most of the common application initialization/bootstrapping that takes place every time you create a new Redux project.
 
-When you create a new Redux project you usually need to take care about a few things:
+When you create a new Redux project you usually need to take care of a few things:
 
 - Install dependencies.
 - Integrate the React router with Redux.
