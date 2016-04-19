@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WolkSoftwareLtd/redux-bootstrap.git"
+    "url": "git+https://github.com/remojansen/redux-bootstrap.git"
   },
   "keywords": [
     "redux",
