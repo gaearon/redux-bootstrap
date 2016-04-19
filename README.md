@@ -14,7 +14,7 @@ Bootstrapping function for Redux applications. Redux bootstrap does not generate
 It is not a project template or project scaffolding tool and it is not related with Bootstrap (responsive web apps framework).
 
 ## Why Do I Need This?
-This library handles most of the common application initialization/bootstraping that takes place everytime you create a new Redux project.
+This library handles most of the common application initialization/bootstrapping that takes place every time you create a new Redux project.
 
 When you create a new Redux project you usually need to take care about a few things:
 
@@ -32,6 +32,10 @@ When you create a new Redux project you usually need to take care about a few th
 - Render the Root component.
 
 Redux bootrap handles all this stuff for you! 
+
+This idea is based on the bootstrap function which is available in other framewokrs like the 
+[Angular 2.0](https://angular.io/docs/ts/latest/api/platform/browser/bootstrap-function.html) or the
+[Aurelia](http://aurelia.io/docs.html#/aurelia/bootstrapper/1.0.0-beta.1.2.0/doc/api/overview) bootstrapping functions.
 
 # How Can I Use It?
 
