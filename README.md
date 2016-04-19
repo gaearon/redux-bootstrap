@@ -42,7 +42,7 @@ This idea is based on the bootstrap function which is available in other modern 
 Install it via npm:
 
 ```
-npm install --save redux-bootstrap
+$ npm install --save redux-bootstrap
 ```
 
 The preceding command will install `redux-bootstrap` and the following dependencies:
