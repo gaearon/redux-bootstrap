@@ -9,7 +9,7 @@ $ git clone https://github.com/YOUR_USERNAME/redux-bootstrap.git
 
 2 - Install global npm dependencies:
 ```
-$ npm install -g typescript typings istanbul
+$ npm install -g typings 
 ```
 
 3 - Install type definitions:
@@ -24,7 +24,7 @@ $ npm install
 
 5 - Run development build process
 ```
-$ npm run dev
+$ gulp
 ```
 
 ## Guidelines
