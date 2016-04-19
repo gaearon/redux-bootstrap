@@ -31,9 +31,9 @@ When you create a new Redux project you usually need to take care about a few th
 - Set the routes, history and store in the Root component.
 - Render the Root component.
 
-Redux bootrap handles all this stuff for you! 
+The redux-bootrap package handles all this stuff for you! 
 
-This idea is based on the bootstrap function which is available in other framewokrs like the 
+This idea is based on the bootstrap function which is available in other modern JS framewokrs like the 
 [Angular 2.0](https://angular.io/docs/ts/latest/api/platform/browser/bootstrap-function.html) or the
 [Aurelia](http://aurelia.io/docs.html#/aurelia/bootstrapper/1.0.0-beta.1.2.0/doc/api/overview) bootstrapping functions.
 
