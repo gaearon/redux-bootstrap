@@ -93,7 +93,7 @@ That's it, Routing, Immutable, DevTools are ready and you can start working on y
 Note. If you are looking for a sample application, you can refer to the tests in the redux-bootstrap GitHub repository to find one. The tests use a [whole redux application](https://github.com/remojansen/redux-bootstrap/blob/master/test/stubs.tsx)  and the [bootstrap function](https://github.com/remojansen/redux-bootstrap/blob/master/test/index.test.tsx#L41-L47).
 
 # Using combineReducers
-Redux bootstrap uses Immutable.js. The `combineReducers` function from redux don't work with immutable state but you can use the `redux-immutbale` `combineReducers` function to tolve this problem:
+Redux bootstrap uses Immutable.js. The `combineReducers` function from redux don't work with immutable state but you can use the `redux-immutable` `combineReducers` function to solve this problem:
 
 ```ts
 import { combineReducers } from "redux-immutable";
